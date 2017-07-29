@@ -57,6 +57,28 @@ namespace NotiXamarin
 			}
 		}
 		
+		public partial class Id
+		{
+			
+			// aapt resource value: 0x7f050002
+			public const int newsBody = 2131034114;
+			
+			// aapt resource value: 0x7f050001
+			public const int newsImage = 2131034113;
+			
+			// aapt resource value: 0x7f050000
+			public const int newsTitle = 2131034112;
+			
+			static Id()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Id()
+			{
+			}
+		}
+		
 		public partial class Layout
 		{
 			
