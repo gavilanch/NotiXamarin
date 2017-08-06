@@ -6,7 +6,7 @@ using Square.Picasso;
 
 namespace NotiXamarin
 {
-    [Activity(Label = "NotiXamarin", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "NotiXamarin", Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
         protected override void OnCreate(Bundle bundle)

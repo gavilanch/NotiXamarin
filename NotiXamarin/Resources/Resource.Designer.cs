@@ -66,6 +66,9 @@ namespace NotiXamarin
 			// aapt resource value: 0x7f050001
 			public const int newsImage = 2131034113;
 			
+			// aapt resource value: 0x7f050003
+			public const int newsListView = 2131034115;
+			
 			// aapt resource value: 0x7f050000
 			public const int newsTitle = 2131034112;
 			
@@ -84,6 +87,12 @@ namespace NotiXamarin
 			
 			// aapt resource value: 0x7f030000
 			public const int Main = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int NewsList = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int NewsListRow = 2130903042;
 			
 			static Layout()
 			{
