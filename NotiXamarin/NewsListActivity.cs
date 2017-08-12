@@ -29,6 +29,16 @@ namespace NotiXamarin
             var newsService = new NewsService();
             var news = newsService.GetNews();
             newsListView.Adapter = new NewsListAdapter(this, news);
+
+            newsListView.ItemClick += NewsListView_ItemClick;
+        }
+
+        private void NewsListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            var intent = new Intent(this, typeof(MainActivity));
+            var id = (int)e.Id;
+            intent.PutExtra(MainActivity.KEY_ID, id);
+            StartActivity(intent);
         }
     }
 }

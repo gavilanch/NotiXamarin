@@ -9,6 +9,8 @@ namespace NotiXamarin
     [Activity(Label = "NotiXamarin", Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
+        internal static string KEY_ID = "KEY_ID";
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -16,9 +18,11 @@ namespace NotiXamarin
             // Set our view from the "main" layout resource
              SetContentView (Resource.Layout.Main);
 
+            var id = Intent.Extras.GetInt(KEY_ID);
+
             var newsService = new NewsService();
 
-            var news = newsService.GetNewsById(1);
+            var news = newsService.GetNewsById(id);
 
             var newsTitle = FindViewById<TextView>(Resource.Id.newsTitle);
             var newsBody = FindViewById<TextView>(Resource.Id.newsBody);
