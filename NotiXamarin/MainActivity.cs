@@ -3,10 +3,11 @@ using Android.Widget;
 using Android.OS;
 using NotiXamarin.Core.Services;
 using Square.Picasso;
+using System;
 
 namespace NotiXamarin
 {
-    [Activity(Label = "NotiXamarin", Icon = "@drawable/icon")]
+    [Activity(Label = "NotiXamarin", Icon = "@drawable/icon", ParentActivity = typeof(NewsListActivity))]
     public class MainActivity : Activity
     {
         internal static string KEY_ID = "KEY_ID";
@@ -17,6 +18,8 @@ namespace NotiXamarin
 
             // Set our view from the "main" layout resource
              SetContentView (Resource.Layout.Main);
+
+            PrepareActionBar();
 
             var id = Intent.Extras.GetInt(KEY_ID);
 
@@ -42,6 +45,11 @@ namespace NotiXamarin
 
             newsTitle.Text = news.Title;
             newsBody.Text = news.Body;
+        }
+
+        private void PrepareActionBar()
+        {
+            ActionBar.SetDisplayHomeAsUpEnabled(true);
         }
     }
 }
