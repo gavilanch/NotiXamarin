@@ -4,6 +4,7 @@ using Android.OS;
 using NotiXamarin.Core.Services;
 using Square.Picasso;
 using System;
+using Android.Views;
 
 namespace NotiXamarin
 {
@@ -50,6 +51,29 @@ namespace NotiXamarin
         private void PrepareActionBar()
         {
             ActionBar.SetDisplayHomeAsUpEnabled(true);
+        }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.newsActionMenu, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.action_read_later:
+                    HandleReadLater();
+                    return true;
+                default:
+                    return base.OnOptionsItemSelected(item);
+            }
+        }
+
+        private void HandleReadLater()
+        {
+            Toast.MakeText(this, "read later", ToastLength.Short).Show();
         }
     }
 }
