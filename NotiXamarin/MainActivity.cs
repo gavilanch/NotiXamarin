@@ -5,6 +5,7 @@ using NotiXamarin.Core.Services;
 using Square.Picasso;
 using System;
 using Android.Views;
+using NotiXamarin.Core.Models;
 
 namespace NotiXamarin
 {
@@ -12,6 +13,10 @@ namespace NotiXamarin
     public class MainActivity : Activity
     {
         internal static string KEY_ID = "KEY_ID";
+        private News _news;
+        private readonly string KEY_BODY = "KEY_BODY";
+        private readonly string KEY_IMAGE_NAME = "KEY_IMAGE_NAME";
+        private readonly string KEY_TITLE = "KEY_TITLE";
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -24,9 +29,19 @@ namespace NotiXamarin
 
             var id = Intent.Extras.GetInt(KEY_ID);
 
-            var newsService = new NewsService();
-
-            var news = newsService.GetNewsById(id);
+            if (bundle == null)
+            {
+                var newsService = new NewsService();
+                _news = newsService.GetNewsById(id);
+            }
+            else
+            {
+                _news = new News();
+                _news.Id = bundle.GetInt(KEY_ID);
+                _news.Body = bundle.GetString(KEY_BODY);
+                _news.ImageName = bundle.GetString(KEY_IMAGE_NAME);
+                _news.Title = bundle.GetString(KEY_TITLE);
+            }
 
             var newsTitle = FindViewById<TextView>(Resource.Id.newsTitle);
             var newsBody = FindViewById<TextView>(Resource.Id.newsBody);
@@ -37,20 +52,30 @@ namespace NotiXamarin
             display.GetSize(point);
 
             var imageURL = string.Concat(ValuesService.ImagesBaseURL, 
-                news.ImageName);
+                _news.ImageName);
 
             Picasso.With(ApplicationContext)
                 .Load(imageURL)
                 .Resize(point.X, 0)
                 .Into(newsImage);
 
-            newsTitle.Text = news.Title;
-            newsBody.Text = news.Body;
+            newsTitle.Text = _news.Title;
+            newsBody.Text = _news.Body;
         }
 
         private void PrepareActionBar()
         {
             ActionBar.SetDisplayHomeAsUpEnabled(true);
+        }
+
+        protected override void OnSaveInstanceState(Bundle outState)
+        {
+            outState.PutString(KEY_BODY, _news.Body);
+            outState.PutInt(KEY_ID, _news.Id);
+            outState.PutString(KEY_IMAGE_NAME, _news.ImageName);
+            outState.PutString(KEY_TITLE, _news.Title);
+
+            base.OnSaveInstanceState(outState);
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
