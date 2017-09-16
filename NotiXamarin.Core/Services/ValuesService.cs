@@ -15,5 +15,12 @@ namespace NotiXamarin.Core.Services
     public class ValuesService
     {
         public static readonly string ImagesBaseURL = "http://mirepogavilanch2.azurewebsites.net/images/";
+        public static readonly string DbName = "notiXamarinDb.db";
+
+        public static string GetDbPath()
+        {
+            string folder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            return System.IO.Path.Combine(folder, DbName);
+        }
     }
 }

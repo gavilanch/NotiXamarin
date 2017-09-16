@@ -13,7 +13,7 @@ using NotiXamarin.Core.Models;
 
 namespace NotiXamarin.Core.Data
 {
-    public class NewsRepository
+    internal class NewsRepository
     {
         private List<News> _news;
 
