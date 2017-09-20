@@ -82,6 +82,8 @@
   <ItemGroup>
     <Compile Include="Adapters\NewsListAdapter.cs" />
     <Compile Include="Fragments\AllNewsListFragment.cs" />
+    <Compile Include="Fragments\BaseNewsListFragment.cs" />
+    <Compile Include="Fragments\SavedNewsListFragment.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="NewsListActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
