@@ -66,8 +66,8 @@ namespace NotiXamarin
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f060004
-			public const int action_read_later = 2131099652;
+			// aapt resource value: 0x7f060005
+			public const int action_read_later = 2131099653;
 			
 			// aapt resource value: 0x7f060002
 			public const int newsBody = 2131099650;
@@ -76,7 +76,10 @@ namespace NotiXamarin
 			public const int newsImage = 2131099649;
 			
 			// aapt resource value: 0x7f060003
-			public const int newsListView = 2131099651;
+			public const int newsListFragmentContainer = 2131099651;
+			
+			// aapt resource value: 0x7f060004
+			public const int newsListView = 2131099652;
 			
 			// aapt resource value: 0x7f060000
 			public const int newsTitle = 2131099648;
@@ -101,7 +104,10 @@ namespace NotiXamarin
 			public const int NewsList = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int NewsListRow = 2130903042;
+			public const int NewsListFragment = 2130903042;
+			
+			// aapt resource value: 0x7f030003
+			public const int NewsListRow = 2130903043;
 			
 			static Layout()
 			{

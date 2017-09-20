@@ -81,6 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapters\NewsListAdapter.cs" />
+    <Compile Include="Fragments\AllNewsListFragment.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="NewsListActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
@@ -95,6 +96,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\NewsListRow.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\NewsListFragment.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

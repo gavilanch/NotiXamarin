@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 using NotiXamarin.Core.Services;
 using NotiXamarin.Adapters;
+using NotiXamarin.Fragments;
 
 namespace NotiXamarin
 {
@@ -24,13 +25,9 @@ namespace NotiXamarin
             // Create your application here
             SetContentView(Resource.Layout.NewsList);
 
-            var newsListView = FindViewById<ListView>(Resource.Id.newsListView);
-
-            var newsService = new NewsService();
-            var news = newsService.GetNews();
-            newsListView.Adapter = new NewsListAdapter(this, news);
-
-            newsListView.ItemClick += NewsListView_ItemClick;
+            var transaction = FragmentManager.BeginTransaction();
+            transaction.Add(Resource.Id.newsListFragmentContainer, new AllNewsListFragment());
+            transaction.Commit();
         }
 
         private void NewsListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
