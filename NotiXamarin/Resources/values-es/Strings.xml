@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="NewsListActivity.Tabs.AllNews.Header">Todas</string>
+  <string name="NewsListActivity.Tabs.SavedNews.Header">Noticias Salvadas</string>
+
+</resources>

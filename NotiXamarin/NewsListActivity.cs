@@ -27,8 +27,11 @@ namespace NotiXamarin
 
             ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;
 
-            AddTab("All news", new AllNewsListFragment());
-            AddTab("Saved news", new SavedNewsListFragment());
+            var tabsHeaderAllNews = Resources.GetString(Resource.String.NewsListActivity_Tabs_AllNews_Header);
+            var tabsHeaderSavedNews = Resources.GetString(Resource.String.NewsListActivity_Tabs_SavedNews_Header);
+
+            AddTab(tabsHeaderAllNews, new AllNewsListFragment());
+            AddTab(tabsHeaderSavedNews, new SavedNewsListFragment());
         }
 
         private void AddTab(string tabTitle, Fragment fragment)

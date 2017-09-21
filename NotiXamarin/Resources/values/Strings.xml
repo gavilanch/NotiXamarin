@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="Hello">Hello World, Click Me!</string>
-    <string name="ApplicationName">NotiXamarin</string>
+  <string name="NewsListActivity.Tabs.AllNews.Header">All news</string>
+  <string name="NewsListActivity.Tabs.SavedNews.Header">Saved news</string>
+
 </resources>
