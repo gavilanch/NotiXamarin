@@ -74,7 +74,7 @@ namespace NotiXamarin.Fragments
             }
             catch (Exception ex)
             {
-
+                Toast.MakeText(Activity, ex.Message, ToastLength.Short).Show();
             }
         }
     }
