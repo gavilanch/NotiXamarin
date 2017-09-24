@@ -19,11 +19,13 @@ namespace NotiXamarin.Adapters
     {
         private Activity _context;
         private List<News> _news;
+        private ISelectedChecker _selectedChecker;
 
-        public NewsListAdapter(Activity context, List<News> news)
+        public NewsListAdapter(Activity context, List<News> news, ISelectedChecker selectedChecker)
         {
             _context = context;
             _news = news;
+            _selectedChecker = selectedChecker;
         }
 
 
@@ -43,6 +45,22 @@ namespace NotiXamarin.Adapters
             if (convertView == null)
             {
                 convertView = _context.LayoutInflater.Inflate(Resource.Layout.NewsListRow, null);
+            }
+            else
+            {
+                var id = (int)GetItemId(position);
+                RelativeLayout rl = convertView.FindViewById<RelativeLayout>(Resource.Id.newsListRow_RelativeLayout);
+
+                if (_selectedChecker.IsItemSelected(id))
+                {
+                    var colorForSelected = _context.Resources.GetString(Resource.Color.listitemselected);
+                    rl.SetBackgroundColor(Android.Graphics.Color.ParseColor(colorForSelected));
+                }
+                else
+                {
+                    var colorForUnselected = _context.Resources.GetString(Resource.Color.listitemunselected);
+                    rl.SetBackgroundColor(Android.Graphics.Color.ParseColor(colorForUnselected));
+                }
             }
 
             convertView.FindViewById<TextView>(Resource.Id.newsTitle).Text = item.Title;

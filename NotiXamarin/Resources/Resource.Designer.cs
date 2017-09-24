@@ -41,6 +41,25 @@ namespace NotiXamarin
 			}
 		}
 		
+		public partial class Color
+		{
+			
+			// aapt resource value: 0x7f040000
+			public const int listitemselected = 2130968576;
+			
+			// aapt resource value: 0x7f040001
+			public const int listitemunselected = 2130968577;
+			
+			static Color()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Color()
+			{
+			}
+		}
+		
 		public partial class Drawable
 		{
 			
@@ -66,23 +85,29 @@ namespace NotiXamarin
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f060005
-			public const int action_read_later = 2131099653;
+			// aapt resource value: 0x7f070006
+			public const int action_read_later = 2131165190;
 			
-			// aapt resource value: 0x7f060002
-			public const int newsBody = 2131099650;
+			// aapt resource value: 0x7f070007
+			public const int delete_saved_news = 2131165191;
 			
-			// aapt resource value: 0x7f060001
-			public const int newsImage = 2131099649;
+			// aapt resource value: 0x7f070002
+			public const int newsBody = 2131165186;
 			
-			// aapt resource value: 0x7f060003
-			public const int newsListFragmentContainer = 2131099651;
+			// aapt resource value: 0x7f070001
+			public const int newsImage = 2131165185;
 			
-			// aapt resource value: 0x7f060004
-			public const int newsListView = 2131099652;
+			// aapt resource value: 0x7f070003
+			public const int newsListFragmentContainer = 2131165187;
 			
-			// aapt resource value: 0x7f060000
-			public const int newsTitle = 2131099648;
+			// aapt resource value: 0x7f070005
+			public const int newsListRow_RelativeLayout = 2131165189;
+			
+			// aapt resource value: 0x7f070004
+			public const int newsListView = 2131165188;
+			
+			// aapt resource value: 0x7f070000
+			public const int newsTitle = 2131165184;
 			
 			static Id()
 			{
@@ -122,8 +147,11 @@ namespace NotiXamarin
 		public partial class Menu
 		{
 			
-			// aapt resource value: 0x7f050000
-			public const int newsActionMenu = 2131034112;
+			// aapt resource value: 0x7f060000
+			public const int newsActionMenu = 2131099648;
+			
+			// aapt resource value: 0x7f060001
+			public const int savedNewsActionMenu = 2131099649;
 			
 			static Menu()
 			{
@@ -138,11 +166,11 @@ namespace NotiXamarin
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040000
-			public const int NewsListActivity_Tabs_AllNews_Header = 2130968576;
+			// aapt resource value: 0x7f050000
+			public const int NewsListActivity_Tabs_AllNews_Header = 2131034112;
 			
-			// aapt resource value: 0x7f040001
-			public const int NewsListActivity_Tabs_SavedNews_Header = 2130968577;
+			// aapt resource value: 0x7f050001
+			public const int NewsListActivity_Tabs_SavedNews_Header = 2131034113;
 			
 			static String()
 			{

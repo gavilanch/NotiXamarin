@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="listitemselected">#78909c</color>
+  <color name="listitemunselected">#303030</color>
+</resources>
