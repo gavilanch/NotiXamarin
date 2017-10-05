@@ -14,12 +14,12 @@ using NotiXamarin.Adapters;
 
 namespace NotiXamarin.Fragments
 {
-    public class BaseNewsListFragment : Fragment, ISelectedChecker
+    internal class BaseNewsListFragment : Fragment, ISelectedChecker
     {
         protected ListView _newsListView;
         protected List<News> _news;
         protected List<News> _selectedNews;
-        private NewsListAdapter _newsListAdapter;
+        protected NewsListAdapter _newsListAdapter;
 
         public BaseNewsListFragment()
         {

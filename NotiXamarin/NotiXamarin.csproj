@@ -80,6 +80,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapters\INotify.cs" />
     <Compile Include="Adapters\ISelectedChecker.cs" />
     <Compile Include="Adapters\NewsListAdapter.cs" />
     <Compile Include="Fragments\AllNewsListFragment.cs" />

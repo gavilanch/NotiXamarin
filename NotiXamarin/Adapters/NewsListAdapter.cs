@@ -20,6 +20,7 @@ namespace NotiXamarin.Adapters
         private Activity _context;
         private List<News> _news;
         private ISelectedChecker _selectedChecker;
+        private INotify _loadObserver;
 
         public NewsListAdapter(Activity context, List<News> news, ISelectedChecker selectedChecker)
         {
@@ -61,6 +62,11 @@ namespace NotiXamarin.Adapters
                     var colorForUnselected = _context.Resources.GetString(Resource.Color.listitemunselected);
                     rl.SetBackgroundColor(Android.Graphics.Color.ParseColor(colorForUnselected));
                 }
+
+                if (IsEndOfList(position))
+                {
+                    NotifyLoadObserver();
+                }
             }
 
             convertView.FindViewById<TextView>(Resource.Id.newsTitle).Text = item.Title;
@@ -74,6 +80,29 @@ namespace NotiXamarin.Adapters
                 .Into(newsImage);
 
             return convertView;
+        }
+
+        internal void AddNews(List<News> news)
+        {
+            _news = news;
+        }
+
+        private bool IsEndOfList(int position)
+        {
+            return position == Count - 1;
+        }
+
+        public void RegisterLoadObserver(INotify loadObserver)
+        {
+            _loadObserver = loadObserver;
+        }
+
+        private void NotifyLoadObserver()
+        {
+            if (_loadObserver != null)
+            {
+                _loadObserver.NotifyObserver();
+            }
         }
     }
 }

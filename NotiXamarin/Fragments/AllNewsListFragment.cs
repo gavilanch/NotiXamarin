@@ -11,12 +11,14 @@ using Android.Views;
 using Android.Widget;
 using NotiXamarin.Core.Services;
 using NotiXamarin.Core.Models;
+using NotiXamarin.Adapters;
 
 namespace NotiXamarin.Fragments
 {
-    public class AllNewsListFragment : BaseNewsListFragment
+    internal class AllNewsListFragment : BaseNewsListFragment, INotify
     {
         private NewsService _newsService;
+        public int CurrentPage { get; set; }
 
         public AllNewsListFragment()
         {
@@ -29,10 +31,25 @@ namespace NotiXamarin.Fragments
 
             if (!_news.Any())
             {
-                _news = _newsService.GetNews();
+                CurrentPage = 1;
+                _news = _newsService.GetNews(CurrentPage);
             }
 
             SetupFragment();
+
+            _newsListAdapter.RegisterLoadObserver(this);
+        }
+
+        public void NotifyObserver()
+        {
+            CurrentPage++;
+            var nextNews = _newsService.GetNews(CurrentPage);
+            if (nextNews.Any())
+            {
+                _news.AddRange(nextNews);
+                _newsListAdapter.AddNews(_news);
+                _newsListAdapter.NotifyDataSetChanged();
+            }
         }
 
         public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)

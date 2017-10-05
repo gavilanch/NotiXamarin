@@ -23,9 +23,9 @@ namespace NotiXamarin.Core.Services
             _newsRepository = new NewsRepository();
         }
 
-        public List<News> GetNews()
+        public List<News> GetNews(int page)
         {
-            return _newsRepository.GetNews();
+            return _newsRepository.GetNews(page);
         }
 
         public News GetNewsById(int Id)

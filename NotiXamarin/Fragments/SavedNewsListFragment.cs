@@ -14,7 +14,7 @@ using NotiXamarin.Core.Models;
 
 namespace NotiXamarin.Fragments
 {
-    public class SavedNewsListFragment : BaseNewsListFragment
+    internal class SavedNewsListFragment : BaseNewsListFragment
     {
         private NewsLocalService _newsLocalService;
 
