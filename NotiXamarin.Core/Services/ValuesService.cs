@@ -15,6 +15,7 @@ namespace NotiXamarin.Core.Services
     public class ValuesService
     {
         public static readonly string ImagesBaseURL = "http://mirepogavilanch2.azurewebsites.net/images/";
+        public static readonly string NewsApiUrl = "http://mirepogavilanch2.azurewebsites.net/api/NotiXamarin/";
         public static readonly string DbName = "notiXamarinDb.db";
 
         public static string GetDbPath()

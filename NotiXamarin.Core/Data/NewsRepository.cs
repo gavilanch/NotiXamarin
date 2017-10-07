@@ -10,53 +10,37 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using NotiXamarin.Core.Models;
+using NotiXamarin.Core.Services;
 
 namespace NotiXamarin.Core.Data
 {
     internal class NewsRepository
     {
-        private List<News> _news;
-        private int size = 10;
+        private WebServices _webServices;
 
         public NewsRepository()
         {
-            _news = new List<News>();
-
-            for (int i = 1; i <= 30; i++)
-            {
-                var newNews = new News();
-
-                newNews.Body = "Body " + i.ToString();
-                newNews.Title = "Title " + i.ToString();
-                newNews.Id = i;
-                newNews.ImageName = chooseImage(i);
-                _news.Add(newNews);
-            }
-
-            string chooseImage(int discriminant)
-            {
-                switch (discriminant % 3)
-                {
-                    case 0:
-                        return "noticia1.png";
-                    case 1:
-                        return "noticia2.png";
-                    case 2:
-                        return "noticia3.png";
-                    default:
-                        throw new NotImplementedException();
-                }
-            }
+            _webServices = new WebServices();
         }
 
         public List<News> GetNews(int page)
         {
-            return _news.Skip((page - 1) * size).Take(size).ToList();
+            var queryString = "?page=" + page;
+            var response = _webServices.Get(ValuesService.NewsApiUrl + queryString);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<List<News>>(response.Content);
         }
 
         public News GetNewsById(int Id)
         {
-            return _news.FirstOrDefault(x => x.Id == Id);
+            var response = _webServices.Get(ValuesService.NewsApiUrl + Id);
+
+            if (response.HttpStatusCode != System.Net.HttpStatusCode.OK)
+            {
+                throw new ApplicationException("news not found");
+            }
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<News>(response.Content);
+
         }
     }
 }
